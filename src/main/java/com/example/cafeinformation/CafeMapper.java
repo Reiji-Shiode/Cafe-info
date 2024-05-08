@@ -10,4 +10,7 @@ public interface CafeMapper {
 
     @Select("SELECT * FROM cafes")
     List<Cafe> findAll();
+
+    @Select("SELECT * FROM cafes WHERE place LIKE CONCAT(#{prefix}, '%')")
+    List<Cafe> findByPlaceEqualsWith(String place);
 }

@@ -1,6 +1,7 @@
 package com.example.cafeinformation;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,8 +16,7 @@ public class CafeController {
     }
 
     @GetMapping("/cafes")
-    public List<Cafe> getNames() {
-        List<Cafe> cafes = cafeMapper.findAll();
-        return cafes;
+    public List<Cafe> findByPlaces(@RequestParam String place) {
+            return cafeMapper.findByPlaceEqualsWith(place);
     }
 }
