@@ -12,5 +12,5 @@ public interface CafeMapper {
     List<Cafe> findAll();
 
     @Select("SELECT * FROM cafes WHERE place LIKE CONCAT(#{prefix}, '%')")
-    List<Cafe> findByPlaceEqualsWith(String prefix);
+    List<Cafe> findByPlaceEqualsWith(String place);
 }

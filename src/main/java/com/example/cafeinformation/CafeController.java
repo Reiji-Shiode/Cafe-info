@@ -16,7 +16,7 @@ public class CafeController {
     }
 
     @GetMapping("/cafes")
-    public List<Cafe> findByPlaces(@RequestParam String equalsWith) {
-            return cafeMapper.findByPlaceEqualsWith(equalsWith);
+    public List<Cafe> findByPlaces(@RequestParam String place) {
+            return cafeMapper.findByPlaceEqualsWith(place);
     }
 }
