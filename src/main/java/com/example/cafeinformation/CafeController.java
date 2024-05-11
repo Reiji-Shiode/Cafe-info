@@ -9,14 +9,15 @@ import java.util.List;
 @RestController
 public class CafeController {
 
-    private CafeMapper cafeMapper;
+    private CafeService cafeService;
 
-    public CafeController(CafeMapper cafeMapper) {
-        this.cafeMapper = cafeMapper;
+    public CafeController(CafeService cafeService) {
+        this.cafeService = cafeService;
     }
 
     @GetMapping("/cafes")
     public List<Cafe> findByPlaces(@RequestParam String place) {
-            return cafeMapper.findByPlaceEqualsWith(place);
+        List<Cafe> cafes = cafeService.findPlacesEqualWith(place);
+        return cafes;
     }
 }
