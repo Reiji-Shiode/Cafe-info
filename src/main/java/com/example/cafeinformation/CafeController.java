@@ -1,6 +1,8 @@
 package com.example.cafeinformation;
 
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +21,10 @@ public class CafeController {
     public List<Cafe> findByPlaces(@RequestParam String place) {
         List<Cafe> cafes = cafeService.findPlacesEqualWith(place);
         return cafes;
+    }
+
+    @GetMapping("/cafes/{id}")
+    public Cafe findInformation(@PathVariable("id") int id) {
+        return cafeService.findId(id);
     }
 }
